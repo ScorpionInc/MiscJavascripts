@@ -1,0 +1,22 @@
+//Modded script based upon script by: Clutch152
+//Created by: SI
+//Created on: 20180302
+//Purpose to: Completes all courses and tests in Skillport / Skillsoft
+
+//Enable Debugging just in case...
+window.DEBUG_WINDOW = true;
+Progress.ResultsMgr.getInstance( ).setTopicVisitStatusAllTopics( Core.GenericConstants.COMPLETED )
+var elementz = Progress.ResultsMgr.getInstance( ).masterBucket.topicStatusItems.elements( );
+//Made it easier to read the variables to adjust your desired score range
+var score = 0; var minScore = 80; var maxScore = 100;
+while ( elementz.hasMoreElements( ) )
+{
+  score = ( minScore + Math.floor( Math.random( ) * (maxScore - minScore) ) );
+  //Sanity Checks (should’nt be needed)
+  if (score < minScore) score = minScore;
+  if (score > maxScore) score = maxScore;
+  var elementn = elementz.nextElement( );
+  if ( elementn.numberOfObjectives > 0 )
+    elementn.setScore( score, false );
+}
+top.close( );
