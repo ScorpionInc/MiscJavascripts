@@ -1,0 +1,19 @@
+//Created by: SI
+//Created on: 20181109
+//Updated on: 20181109
+//Purpose: Skillsoft / Skillport script completes the video/audio content portion cannot do tests yet...
+
+//To see errors and warnings
+window.DEBUG_WINDOW = true;
+//Enable right-clicking for inspection and convenience
+window.oncontextmenu = null;
+document.oncontextmenu = null;
+var elements = document.getElementsByTagName("*");
+for(var id = 0; id < elements.length; ++id)
+{
+	elements[id].oncontextmenu = null;
+}
+//Only works on video/audio portions of the course not tests…
+Control.mediaController.triggerPlayEvent();
+Control.mediaController.setAudioState(Media.PLAY_DONE);
+Control.mediaController.setCurrentTime(2147483646);//-1
